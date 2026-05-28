@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/admindashboard/(.*)",
+      "destination": "/admindashboard/index.html"
+    },
+    {
+      "source": "/admindashboard",
+      "destination": "/admindashboard/index.html"
+    },
+    {
+      "source": "/((?!admindashboard).*)$",
+      "destination": "/index.html"
+    }
+  ]
+}
