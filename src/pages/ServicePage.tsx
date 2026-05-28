@@ -1,5 +1,3 @@
-
-import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { services } from '../data/services';
 import { projects } from '../data/projects';
@@ -12,7 +10,6 @@ import { CheckCircle2 } from 'lucide-react';
 
 export default function ServicePage() {
   const { slug } = useParams();
-  const [showOrderForm, setShowOrderForm] = useState(false);
   const service = services.find(s => s.slug === slug);
 
   if (!service) return <div className="text-white text-center py-20 font-montserrat">Service not found</div>;
