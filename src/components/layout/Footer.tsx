@@ -1,0 +1,88 @@
+import { Link } from 'react-router-dom';
+import { Share2, Music, Mail, Eye, Phone, MapPin } from 'lucide-react';
+
+export const Footer = () => {
+  return (
+    <footer className="bg-cosmic-black pt-20 pb-10 px-6 border-t border-cosmic-gold/20">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="col-span-1 md:col-span-1">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-8 h-8 bg-cosmic-gold rounded-full flex items-center justify-center">
+                <span className="text-cosmic-black font-black text-sm">K</span>
+              </div>
+              <span className="text-white font-montserrat font-black text-xl tracking-tighter">
+                KARANA
+              </span>
+            </div>
+            <p className="text-white/50 font-montserrat text-sm leading-relaxed mb-8">
+              An elite multidisciplinary engineering and technology agency pushing the boundaries of what's possible.
+            </p>
+            <div className="flex gap-4">
+              {[Share2, Music, Mail, Eye].map((Icon, i) => (
+                <a key={i} href="#" className="p-2 rounded-full bg-white/5 text-white/70 hover:text-cosmic-gold hover:bg-cosmic-gold/10 transition-all duration-300">
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Quick Links</h4>
+            <ul className="space-y-4">
+              {['Home', 'Works', 'Services', 'About', 'Contact'].map((item) => (
+                <li key={item}>
+                  <Link to={`/${item.toLowerCase() === 'home' ? '' : item.toLowerCase()}`} className="text-white/50 hover:text-cosmic-gold transition-colors duration-300 text-sm font-montserrat">
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Expertise</h4>
+            <ul className="space-y-4">
+              {['Engineering', 'Simulation', 'Software', 'AI', 'Product Design', 'Animation'].map((item) => (
+                <li key={item}>
+                  <a href="#" className="text-white/50 hover:text-cosmic-gold transition-colors duration-300 text-sm font-montserrat">
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Connect</h4>
+            <ul className="space-y-4">
+              <li>
+                <a href="mailto:contactkaranaagency@gmail.com" className="flex items-center gap-3 text-white/50 hover:text-cosmic-gold transition-colors duration-300 text-sm font-montserrat">
+                  <Mail size={16} /> contactkaranaagency@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+917569274373" className="flex items-center gap-3 text-white/50 hover:text-cosmic-gold transition-colors duration-300 text-sm font-montserrat">
+                  <Phone size={16} /> +91 75692 74373
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-white/50 text-sm font-montserrat">
+                <MapPin size={16} /> Amaravati, India
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/30 text-xs font-montserrat">
+            © {new Date().getFullYear()} KARANA Agency. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-xs text-white/30 font-montserrat">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
