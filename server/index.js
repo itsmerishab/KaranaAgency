@@ -12,7 +12,17 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (
+      origin.startsWith('http://localhost:') ||
+      origin.endsWith('.vercel.app') ||
+      origin === 'https://karana-agency.vercel.app'
+    ) {
+      return callback(null, true);
+    }
+    callback(null, false); // Block other domains silently
+  },
   credentials: true
 }));
 app.use(express.json());
