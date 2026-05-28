@@ -81,7 +81,8 @@ export default function Contact() {
     reset();
   };
 
-  return     <div className="relative z-10 min-h-screen px-6 py-24 max-w-7xl mx-auto">
+  return (
+    <div className="relative z-10 min-h-screen px-6 py-24 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
 
         {/* ── Block 1: Left Header (Get In Touch) ────────────────────────── */}
